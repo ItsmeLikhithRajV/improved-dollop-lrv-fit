@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SentientOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#000000" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: 'hsl(var(--background))',
+              foreground: 'hsl(var(--foreground))',
+              primary: {
+                DEFAULT: 'hsl(var(--primary))',
+                foreground: 'hsl(var(--primary-foreground))',
+              },
+              secondary: {
+                DEFAULT: 'hsl(var(--secondary))',
+                foreground: 'hsl(var(--secondary-foreground))',
+              },
+              muted: {
+                DEFAULT: 'hsl(var(--muted))',
+                foreground: 'hsl(var(--muted-foreground))',
+              },
+              accent: {
+                DEFAULT: 'hsl(var(--accent))',
+                foreground: 'hsl(var(--accent-foreground))',
+              },
+              // Nebula State Colors
+              nebula: {
+                recharge: 'hsl(var(--nebula-recharge))',
+                ignite: 'hsl(var(--nebula-ignite))',
+                warning: 'hsl(var(--nebula-warning))',
+                flow: 'hsl(var(--nebula-flow))',
+              },
+              // Fuel Visualization
+              fuel: {
+                glycogen: 'hsl(var(--fuel-glycogen))',
+                hydration: 'hsl(var(--fuel-hydration))',
+                reserve: 'hsl(var(--fuel-reserve))',
+              },
+              // Recovery States
+              autonomic: {
+                balanced: 'hsl(var(--autonomic-balanced))',
+                sympathetic: 'hsl(var(--autonomic-sympathetic))',
+                parasympathetic: 'hsl(var(--autonomic-parasympathetic))',
+              },
+            },
+            boxShadow: {
+              'glow-primary': 'var(--glow-primary)',
+              'glow-nebula': 'var(--glow-nebula)',
+              'glow-warning': '0 0 60px hsla(15, 100%, 50%, 0.4)',
+              'glow-ignite': '0 0 60px hsla(160, 100%, 50%, 0.4)',
+              'glow-recharge': '0 0 60px hsla(265, 100%, 50%, 0.3)',
+              'inner-glow': 'inset 0 0 30px hsla(180, 100%, 50%, 0.1)',
+            },
+            backdropBlur: {
+              '3xl': '64px',
+              '4xl': '96px',
+            },
+            animation: {
+              'nebula-pulse': 'nebulaPulse 8s ease-in-out infinite',
+              'orb-breathe': 'orbBreathe 4s ease-in-out infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'glow-pulse': 'glowPulse 2s ease-in-out infinite',
+              'liquid-flow': 'liquidFlow 3s ease-in-out infinite',
+              'gyro-spin': 'gyroSpin 10s linear infinite',
+              'warning-flash': 'warningFlash 1s ease-in-out infinite',
+            },
+            keyframes: {
+              nebulaPulse: {
+                '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
+                '50%': { opacity: '0.6', transform: 'scale(1.1)' },
+              },
+              orbBreathe: {
+                '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 40px hsla(180, 100%, 50%, 0.3)' },
+                '50%': { transform: 'scale(1.05)', boxShadow: '0 0 80px hsla(180, 100%, 50%, 0.5)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              glowPulse: {
+                '0%, 100%': { opacity: '0.5' },
+                '50%': { opacity: '1' },
+              },
+              liquidFlow: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+                '100%': { backgroundPosition: '0% 50%' },
+              },
+              gyroSpin: {
+                '0%': { transform: 'rotateY(0deg)' },
+                '100%': { transform: 'rotateY(360deg)' },
+              },
+              warningFlash: {
+                '0%, 100%': { opacity: '1' },
+                '50%': { opacity: '0.5' },
+              },
+            },
+          }
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.559.0",
+    "clsx": "https://esm.sh/clsx@^2.1.1",
+    "tailwind-merge": "https://esm.sh/tailwind-merge@^3.4.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+    "react": "https://esm.sh/react@^19.2.1",
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "@google/genai": "https://esm.sh/@google/genai"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
